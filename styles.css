@@ -5,6 +5,7 @@ body {
     color: white;
     background-color: #281c1e;
     font-family: 'Source Sans Pro', sans-serif;
+    overflow: overlay;
 }
 
 html,
@@ -103,4 +104,17 @@ section, footer, .content {
     margin-left: auto;
     margin-right: auto;
     padding: 1em 2em;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.35);
 }
