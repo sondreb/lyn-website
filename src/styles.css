@@ -4,7 +4,8 @@ html {
 body {
     color: white;
     background-color: #281c1e;
-    font-family: 'Source Sans Pro', sans-serif;
+    /* font-family: 'Source Sans Pro', sans-serif; */
+    font-family: 'Open Sans', sans-serif;
     overflow: overlay;
 }
 
@@ -30,18 +31,23 @@ body {
 
 h1 {
     margin: 0;
-    font-family: 'Encode Sans SC', sans-serif;
-    padding-bottom: 1.5em;
+    /* font-family: 'Encode Sans SC', sans-serif; */
+    font-family: 'Alfa Slab One', cursive;
+    font-weight: 400;
+    /* font-style: normal; */
+    /* line-height: 1.369; */
+    padding-bottom: 0.6em;
+    font-size: 4em;
 }
 
 h2 {
     margin: 0;
-    padding-bottom: 1em;
+    padding-bottom: 0.3em;
 }
 
 h3 {
     margin: 0;
-    padding-bottom: 1em;
+    padding-bottom: 0.3em;
 }
 
 .splash-image {
