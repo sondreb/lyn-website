@@ -5,7 +5,7 @@ body {
     color: white;
     background-color: #281c1e;
     /* font-family: 'Source Sans Pro', sans-serif; */
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     overflow: overlay;
 }
 
@@ -32,7 +32,7 @@ body {
 h1 {
     margin: 0;
     /* font-family: 'Encode Sans SC', sans-serif; */
-    font-family: 'Alfa Slab One', cursive;
+    font-family: "Alfa Slab One", cursive;
     font-weight: 400;
     /* font-style: normal; */
     /* line-height: 1.369; */
@@ -105,12 +105,13 @@ a:hover {
     color: white;
 }
 
-
-section, footer, .content {
-
+section,
+footer,
+.content {
 }
 
-.container, footer {
+.container,
+footer {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -149,4 +150,14 @@ section, footer, .content {
     height: 400px;
     background-color: white;
     color: #1b1b1b;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
 }
