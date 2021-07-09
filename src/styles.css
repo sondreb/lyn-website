@@ -78,26 +78,27 @@ button,
 .button {
     /*#98263f;*/
     background-color: #e73f63;
-    border: 1px solid #ffc6d2;
-    border-radius: 4px;
+    border: 2px solid #ffc6d2;
+    border-radius: 2em;
     padding: 1em 2em;
     color: white;
     text-decoration: none;
+    transition: 0.3s;
 }
 
 button:hover,
 .button:hover {
     /*#98263f;*/
-    border: 1px solid #98263f;
-    border-radius: 4px;
-    padding: 1em 2em;
+    background-color: transparent;
+    /* border: 2px solid #98263f; */
     color: whitesmoke;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     cursor: pointer;
 }
 
 a {
     color: #ffc4d0;
+    transition: 0.3s;
 }
 
 a:hover {
@@ -106,6 +107,10 @@ a:hover {
 
 
 section, footer, .content {
+
+}
+
+.container, footer {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -123,4 +128,25 @@ section, footer, .content {
 
 ::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.35);
+}
+
+.section-2 {
+    height: 400px;
+    background-color: #8e283d;
+}
+
+.section-1 {
+    height: 300px;
+    background-color: #271b1d;
+}
+
+.section-3 {
+    height: 600px;
+    background-color: #fec0cb;
+}
+
+.section-4 {
+    height: 400px;
+    background-color: white;
+    color: #1b1b1b;
 }
