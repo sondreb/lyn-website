@@ -180,6 +180,7 @@ footer {
     clear: both;
     margin-right: 10px;
     float: left;
+    border-radius: 15px;
 }
 
 h3 {
