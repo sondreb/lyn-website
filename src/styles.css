@@ -76,7 +76,7 @@ button {
 }
 
 button,
-.button {
+.button-primary {
     /*#98263f;*/
     background-color: #e73f63;
     border: 2px solid #ffc6d2;
@@ -88,9 +88,31 @@ button,
 }
 
 button:hover,
-.button:hover {
+.button-primary:hover {
+    /*#98263f;*/
+    background: rgba(0, 0, 0, 0.2);
+    /* border: 2px solid #98263f; */
+    color: whitesmoke;
+    /* text-decoration: underline; */
+    cursor: pointer;
+}
+
+.button {
     /*#98263f;*/
     background-color: transparent;
+    border: 2px solid #ffc6d2;
+    border-radius: 2em;
+    padding: 1em 2em;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.button:hover {
+    /*#98263f;*/
+    
+    background: rgba(0, 0, 0, 0.2);
+
     /* border: 2px solid #98263f; */
     color: whitesmoke;
     /* text-decoration: underline; */
