@@ -97,6 +97,13 @@ button:hover,
     cursor: pointer;
 }
 
+.button,
+.button-primary {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .button {
     /*#98263f;*/
     background-color: transparent;
@@ -110,7 +117,7 @@ button:hover,
 
 .button:hover {
     /*#98263f;*/
-    
+
     background: rgba(0, 0, 0, 0.2);
 
     /* border: 2px solid #98263f; */
@@ -216,5 +223,14 @@ h3 {
 
     h1 {
         font-size: 3em;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    .button, .button-primary {
+        clear: both;
+        display: block;
+        margin-bottom: 1em;
     }
 }
