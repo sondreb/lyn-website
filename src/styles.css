@@ -233,6 +233,14 @@ h3 {
     clear: both;
 }
 
+.visible-large {
+    display: inline;
+}
+
+.visible-small {
+    display: none;
+}
+
 @media screen and (max-width: 600px) {
     body {
         font-size: 14px;
@@ -248,6 +256,14 @@ h3 {
 
     .drawing-right {
         max-width: 200px;
+    }
+
+    .visible-large {
+        display: none;
+    }
+
+    .visible-small {
+        display: inline;
     }
 }
 
