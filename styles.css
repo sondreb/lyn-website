@@ -241,7 +241,7 @@ h3 {
     display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
     body {
         font-size: 14px;
     }
@@ -264,6 +264,24 @@ h3 {
 
     .visible-small {
         display: inline;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    .drawing {
+        max-width: 200px;
+    }
+
+    .drawing-right {
+        max-width: 200px;
     }
 }
 
