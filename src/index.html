@@ -118,7 +118,7 @@
                 <li>cross chain onchain swaps (using submarine swaps from a Bitcoin lightning channel to a Stratis
                     mainchain address)</li>
                 <li>cross chain off chain swaps (cross chain lightning to lightning swaps offer complete privacy)</li>
-                <li>liquidity markets (loopin)</li>
+                <li>liquidity markets</li>
                 <li>static invoices (bolt12)</li>
             </ul>
 
@@ -131,19 +131,36 @@
      <section class="section section-4">
         <div class="container">
 
-            <h2>Technical proposal</h2>
+           <h2>Technical proposal</h2>
+            
+            Our proposal comes in two parts a full lightning node implementation based on the lightning RFC (also referred to as the BOLTs),  
+            an implementation which is compatible with the Bitcoin network and the Stratis network (a multi chain lightning node).  
+            The second part are applications that use the lightning node implementation such as swaps, watchtowers and routing services for master nodes.
+            
+            <h2>Lightning Node</h2>
+            
+            The following sections describe the BOLTs we will implement that are required to run a lightning node.
+            It also includes a docker based test suite to test and insure compatibility between the existing implementation.  
+            All the BOLT codebase will come in the form of nuget packages, this are as lightning library components 
+            that can be used in C# applications such as web, mobile and even games (with unity).
+            
             <h3>Payment Channels (BOLT1,2,3,8,9)</h3>
-            <p><img class="drawing-right" src="assets/undraw_Development_re_g5hq.svg">
+            <p>
                 Payment channels allow opening commitment transactions between two participants and sending payments off chain in a trustless setup.
                 This include a node that can crate funding transactions to open channels, the commitment transaction so secure the funds 
                 and the HTLCs (hash timed locked outputs) to make off chain payments between participants.
-                It also include lots of boiler plate components such as and the gossip messages and interaction with the Bitcoin and Stratis node.
+                It also includes lots of boilerplate components such as the gossip messages, noise protocol the interaction with base layer etc..
+                
+                A big part of this section is already implemented in the Lyn repo. 
             </p>
           
             <h3>Payment Routing (BOLT4)</h3>
             <p>
-                Text Text Text Text Text Text Text Text Text Text Text Text
-                Text Text Text Text Text Text Text Text Text Text Text Text
+                Onion routing (built of layers like an onion) refer to the ability to route payments between participants who don't share a channel directly,  
+                an onion routed packet is used to route a payment from an origin node to a final node through a number of intermediate nodes, called hops.
+                The payment initiator node, who knows the public keys of each intermediate, create the onion packet in such a way that each node only knows
+                it's previous and next route but can't read information of any participant or how many hope this route has. 
+                
             </p>
             <h3>Paymnt Channel Discovery (BOLT7)</h3>
             <p>
@@ -155,6 +172,11 @@
                 Text Text Text Text Text Text Text Text Text Text Text Text
                 Text Text Text Text Text Text Text Text Text Text Text Text
             </p>
+            
+            <h2>Lightning Applications</h2>
+            
+            Features that will leverage the lightning node and are intended to be used by Stratis master nodes
+            
             <h3>Cross chain submarin swaps</h3>
             <p>
                 Text Text Text Text Text Text Text Text Text Text Text Text
