@@ -144,7 +144,7 @@
             All the BOLT codebase will come in the form of nuget packages, this are as lightning library components 
             that can be used in C# applications such as web, mobile and even games (with unity).
             
-            <h3>Payment Channels (BOLT1,2,3,8,9)</h3>
+            <h3>Payment Channels (BOLT1,2,3,5,8,9)</h3>
             <p>
                 Payment channels allow opening commitment transactions between two participants and sending payments off chain in a trustless setup.
                 This include a node that can crate funding transactions to open channels, the commitment transaction so secure the funds 
@@ -162,15 +162,16 @@
                 it's previous and next route but can't read information of any participant or how many hope this route has. 
                 
             </p>
-            <h3>Paymnt Channel Discovery (BOLT7)</h3>
+            <h3>Paymnt Channel Discovery (BOLT7,10)</h3>
             <p>
-                Text Text Text Text Text Text Text Text Text Text Text Text
-                Text Text Text Text Text Text Text Text Text Text Text Text
+                Node and channel discovery serve two different purposes, Node discovery allows nodes to broadcast information about themslves, so that other 
+                nodes can open connections and establish payment channels with them. Channel discovery allows the creation and maintenance of a local 
+                view of the network's topology, so that a node can discover routes to desired destinations.
+                Discovery is done using gosip messages, each node that receives gossip messages stores it and routs it on to its peers. 
             </p>
             <h3>Payment Invoices (BOLT11)</h3>
             <p>
-                Text Text Text Text Text Text Text Text Text Text Text Text
-                Text Text Text Text Text Text Text Text Text Text Text Text
+                Defining protocol messages where participants can request payments over Lightning.
             </p>
             
             <h2>Lightning Applications</h2>
