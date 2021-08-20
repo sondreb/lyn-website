@@ -143,6 +143,9 @@
             <p>
                 The following sections describe the BOLTs we will implement that are required to run a lightning node.
                 It also includes a docker based test suite to test and insure compatibility between the existing implementation.  
+            </p>
+            
+            <p>   
                 All the BOLT codebase will come in the form of nuget packages, this are lightning library components 
                 that can be used in C# applications such as web, mobile and even games (with unity).
             </p>
@@ -153,7 +156,8 @@
                 This include a node that can crate funding transactions to open channels, the commitment transaction so secure the funds 
                 and the HTLCs (hash timed locked outputs) to make off chain payments between participants.
                 It also includes lots of boilerplate components such as the gossip messages, noise protocol the interaction with base layer etc..
-                
+            </p>   
+            <p>   
                 A big part of this section is already implemented in the Lyn repo. 
             </p>
           
@@ -163,7 +167,8 @@
                 an onion routed packet is used to route a payment from an origin node to a final node through a number of intermediate nodes, called hops.
                 The payment initiator node, who knows the public keys of each intermediate, create the onion packet in such a way that each node only knows
                 it's previous and next route but can't read information of any participant or how many hope this route has. 
-                
+            </p>
+            <p> 
                 Invoicing, defining protocol messages where participants can request payments over Lightning.
             </p>
           
