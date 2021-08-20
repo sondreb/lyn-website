@@ -133,16 +133,19 @@
 
            <h2>Technical proposal</h2>
             
-            Our proposal comes in two parts a full lightning node implementation based on the lightning RFC (also referred to as the BOLTs),  
-            an implementation which is compatible with the Bitcoin network and the Stratis network (a multi chain lightning node).  
-            The second part are applications that use the lightning node implementation such as swaps, watchtowers and routing services for master nodes.
+            <p>
+                Our proposal comes in two parts a full lightning node implementation based on the lightning RFC (also referred to as the BOLTs),  
+                an implementation which is compatible with the Bitcoin network and the Stratis network (a multi chain lightning node).  
+                The second part are applications that use the lightning node implementation such as swaps, watchtowers and routing services for master nodes.
+            </p>
             
             <h2>Lightning Node</h2>
-            
-            The following sections describe the BOLTs we will implement that are required to run a lightning node.
-            It also includes a docker based test suite to test and insure compatibility between the existing implementation.  
-            All the BOLT codebase will come in the form of nuget packages, this are as lightning library components 
-            that can be used in C# applications such as web, mobile and even games (with unity).
+            <p>
+                The following sections describe the BOLTs we will implement that are required to run a lightning node.
+                It also includes a docker based test suite to test and insure compatibility between the existing implementation.  
+                All the BOLT codebase will come in the form of nuget packages, this are as lightning library components 
+                that can be used in C# applications such as web, mobile and even games (with unity).
+            </p>
             
             <h3>Payment Channels (BOLT1,2,3,5,8,9)</h3>
             <p>
@@ -154,24 +157,22 @@
                 A big part of this section is already implemented in the Lyn repo. 
             </p>
           
-            <h3>Payment Routing (BOLT4)</h3>
+            <h3>Payment Routing (BOLT4,11)</h3>
             <p>
                 Onion routing (built of layers like an onion) refer to the ability to route payments between participants who don't share a channel directly,  
                 an onion routed packet is used to route a payment from an origin node to a final node through a number of intermediate nodes, called hops.
                 The payment initiator node, who knows the public keys of each intermediate, create the onion packet in such a way that each node only knows
                 it's previous and next route but can't read information of any participant or how many hope this route has. 
                 
+                Invoicing, defining protocol messages where participants can request payments over Lightning.
             </p>
-            <h3>Paymnt Channel Discovery (BOLT7,10)</h3>
+          
+            <h3>Payment Channel Discovery (BOLT7,10)</h3>
             <p>
-                Node and channel discovery serve two different purposes, Node discovery allows nodes to broadcast information about themslves, so that other 
+                Node and channel discovery serve two different purposes, Node discovery allows nodes to broadcast information about themselves, so that other 
                 nodes can open connections and establish payment channels with them. Channel discovery allows the creation and maintenance of a local 
                 view of the network's topology, so that a node can discover routes to desired destinations.
-                Discovery is done using gosip messages, each node that receives gossip messages stores it and routs it on to its peers. 
-            </p>
-            <h3>Payment Invoices (BOLT11)</h3>
-            <p>
-                Defining protocol messages where participants can request payments over Lightning.
+                Discovery is done using gossip messages, each node that receives gossip messages stores it and routs it on to its peers. 
             </p>
             
             <h2>Lightning Applications</h2>
@@ -180,28 +181,23 @@
             
             <h3>Cross chain submarin swaps</h3>
             <p>
-                Text Text Text Text Text Text Text Text Text Text Text Text
-                Text Text Text Text Text Text Text Text Text Text Text Text
+                WIP
             </p>
             <h3>Cross chain lightning swaps</h3>
             <p>
-                Text Text Text Text Text Text Text Text Text Text Text Text
-                Text Text Text Text Text Text Text Text Text Text Text Text
+                WIP
             </p>
             <h3>MN swap services</h3>
             <p>
-                Text Text Text Text Text Text Text Text Text Text Text Text
-                Text Text Text Text Text Text Text Text Text Text Text Text
+                WIP
             </p>
             <h3>MN watchtower services</h3>
             <p>
-                Text Text Text Text Text Text Text Text Text Text Text Text
-                Text Text Text Text Text Text Text Text Text Text Text Text
+                WIP
             </p>
             <h3>MN routing serivces</h3>
             <p>
-                Text Text Text Text Text Text Text Text Text Text Text Text
-                Text Text Text Text Text Text Text Text Text Text Text Text
+                WIP
             </p>
         </div>
     </section>
