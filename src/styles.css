@@ -293,3 +293,23 @@ h3 {
         margin-bottom: 1em;
     }
 }
+
+.profile-container {
+    display: flex;
+}
+
+.profile-container .image {
+    flex-grow: 4; /* default 0 */
+    width: 140px;
+}
+
+.profile-container .text {
+}
+
+.break {
+    clear: both;
+}
+
+.profile-container {
+    margin-top: 2em;
+}
