@@ -137,11 +137,11 @@
 
             <p>
                 Our proposal comes in two parts a full **lightning node** implementation based on the lightning RFC also
-                referred to BOLTs (Basis of Lightning Technology),
+                referred to as BOLTs (Basis of Lightning Technology),
                 an implementation which is compatible with the Bitcoin network and the Stratis network (a multi-chain
                 lightning node).
                 The second part is about the **applications** that use the lightning node implementation such as swaps, watchtowers
-                and routing services which will be targeted for the Stratis master nodes.
+                and routing services which will be targeting cloud provides or the Stratis master nodes.
             </p>
 
             <h3>Lightning Node</h2>
@@ -150,6 +150,7 @@
                     node.
                     It also includes a docker based test suite to test and insure compatibility between the existing
                     implementation.
+                    The node will be compatible with the popular UI for lightning called RTL (Ride The Lightning)
                 </p>
 
                 <p>
@@ -161,14 +162,7 @@
                     Work has already started on an implementation called Lyn (lightning in Danish).
                     The codebase can be found here [Lyn](https://github.com/block-core/lyn)
                 </p>
-                
-                <p>
-                    For the full lightning implementation the node will be compatible with the popular UI for lightning 
-                    called RTL (Ride The Lightning), and later at the second phase of the proposal we'll work on a light 
-                    weight UI that will use lightning service providers (such as master nodes) for some of the work that
-                    can be delegated away.
-                </p>
-            
+              
                 <p>
                     The lightning node adds scaling capabilities to the already wide Stratis technology stack, we will develop
                     the node with cloud architecture in mind, parts of the workload required to successfully route payments in lighting 
