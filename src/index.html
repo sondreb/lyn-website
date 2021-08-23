@@ -214,13 +214,23 @@
                         Features that use and build on top of the lightning node and are intended to be used by Stratis master
                         nodes
                     </p>
-                    <h3>- Cross chain submarin swaps</h3>
+                    <h3>- Atomic Cross-Chain Lighting Swaps</h3>
                     <p>
-                        WIP
+                        <b>Bitcoin lightning to Stratis main chain</b>
+                        Lightning enables atomic swaps between an off-chain lightning channel to a Bitcoin on-chain address and reverse 
+                        using a protocol extension called submarine swaps.  
+                        We'll use this protocol to enable atomic swaps between LBTC (Bitcoin locked in lightning channels) to STRAX on 
+                        the stratis main chain.
                     </p>
-                    <h3>- Cross chain lightning swaps</h3>
                     <p>
-                        WIP
+                        <b>Bitcoin lightning to Stratis Lightning</b>
+                        A lightning protocol extension called HODL invoices introduces expire-able hash locked lightning payments, where
+                        a routed lightning payment is locked for a certain time until a secret is revealed.
+                        Using this mechanism a lightning payment from one chain can be hash locked at the receiver until the lighting 
+                        swap payment from the sender on the second chain is sent.
+                    </p>
+                    <p>
+                       Swaps will come with a light weight lightning UI.
                     </p>
                     <h3>- MN swap services</h3>
                     <p>
