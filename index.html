@@ -36,7 +36,8 @@
             <h3>Adopt the Lightning protocol in your own software to enable use-cases beyond blockchains.</h3>
             <br><br>
             <!-- <a class="button-primary" href="https://github.com/block-core/lyn/">Source Code</a> -->
-            <a class="button" href="#intro">Read our <span class="visible-large">Stratis Decentralized Accelerator</span><span class="visible-small">SDA</span> proposal</a>
+            <a class="button" href="#intro">Read our <span class="visible-large">Stratis Decentralized
+                    Accelerator</span><span class="visible-small">SDA</span> proposal</a>
         </div>
     </div>
     <a name="intro"></a>
@@ -92,7 +93,8 @@
     <section class="section section-3">
         <div class="container">
             <h2>What is lightning?</h2>
-            <p><img class="drawing-right" src="assets/undraw_nakamoto_2iv6.svg">Lightning is a layer two scaling protocol that is sits on top of the Bitcoin network, the lightning
+            <p><img class="drawing-right" src="assets/undraw_nakamoto_2iv6.svg">Lightning is a layer two scaling
+                protocol that is sits on top of the Bitcoin network, the lightning
                 protocol is designed with multichain support in mind and can be used to scale other blockchains such as
                 the Stratis network.
                 On the lightning network participants open bidirectional payment channels between them and can then send
@@ -128,170 +130,247 @@
         </div>
     </section>
 
-     <section class="section section-4">
+    <section class="section section-4">
         <div class="container">
 
-           <h2>Technical proposal</h2>
-            
+            <h2>Technical proposal</h2>
+
             <p>
-                Our proposal comes in two parts a full lightning node implementation based on the lightning RFC (also referred to as the BOLTs),  
-                an implementation which is compatible with the Bitcoin network and the Stratis network (a multi chain lightning node).  
-                The second part are applications that use the lightning node implementation such as swaps, watchtowers and routing services for master nodes.
+                Our proposal comes in two parts a full lightning node implementation based on the lightning RFC (also
+                referred to as the BOLTs),
+                an implementation which is compatible with the Bitcoin network and the Stratis network (a multi chain
+                lightning node).
+                The second part are applications that use the lightning node implementation such as swaps, watchtowers
+                and routing services for master nodes.
             </p>
-            
+
             <h3>Lightning Node</h2>
-            <p>
-                The following sections describe the BOLTs we will implement that are required to run a lightning node.
-                It also includes a docker based test suite to test and insure compatibility between the existing implementation.  
-            </p>
-            
-            <p>   
-                All the BOLT codebase will come in the form of nuget packages, this are lightning library components 
-                that can be used in C# applications such as web, mobile and even games (with unity).
-            </p>
-            
-            <h3>- Payment Channels (BOLT1,2,3,5,8,9)</h3>
-            <p>
-                Payment channels allow opening commitment transactions between two participants and sending payments off chain in a trustless setup.
-                This include a node that can crate funding transactions to open channels, the commitment transaction so secure the funds 
-                and the HTLCs (hash timed locked outputs) to make off chain payments between participants.
-                It also includes lots of boilerplate components such as the gossip messages, noise protocol the interaction with base layer etc..
-            </p>   
-            <p>   
-                A big part of this section is already implemented in the Lyn repo. 
-            </p>
-          
-            <h3>- Payment Routing (BOLT4,11)</h3>
-            <p>
-                Onion routing (built of layers like an onion) refer to the ability to route payments between participants who don't share a channel directly,  
-                an onion routed packet is used to route a payment from an origin node to a final node through a number of intermediate nodes, called hops.
-                The payment initiator node, who knows the public keys of each intermediate, create the onion packet in such a way that each node only knows
-                it's previous and next route but can't read information of any participant or how many hope this route has. 
-            </p>
-            <p> 
-                Invoicing, defining protocol messages where participants can request payments over Lightning.
-            </p>
-          
-            <h3>- Payment Channel Discovery (BOLT7,10)</h3>
-            <p>
-                Node and channel discovery serve two different purposes, Node discovery allows nodes to broadcast information about themselves, so that other 
-                nodes can open connections and establish payment channels with them. Channel discovery allows the creation and maintenance of a local 
-                view of the network's topology, so that a node can discover routes to desired destinations.
-                Discovery is done using gossip messages, each node that receives gossip messages stores it and routs it on to its peers. 
-            </p>
-            
-            <h3>Lightning Applications</h2>
-            <p> 
-                Features that will leverage the lightning node and are intended to be used by Stratis master nodes
-            </p>
-            <h3>- Cross chain submarin swaps</h3>
-            <p>
-                WIP
-            </p>
-            <h3>- Cross chain lightning swaps</h3>
-            <p>
-                WIP
-            </p>
-            <h3>- MN swap services</h3>
-            <p>
-                WIP
-            </p>
-            <h3>- MN watchtower services</h3>
-            <p>
-                WIP
-            </p>
-            <h3>- MN routing serivces</h3>
-            <p>
-                WIP
-            </p>
+                <p>
+                    The following sections describe the BOLTs we will implement that are required to run a lightning
+                    node.
+                    It also includes a docker based test suite to test and insure compatibility between the existing
+                    implementation.
+                </p>
+
+                <p>
+                    All the BOLT codebase will come in the form of nuget packages, this are lightning library components
+                    that can be used in C# applications such as web, mobile and even games (with unity).
+                </p>
+
+                <h3>- Payment Channels (BOLT1,2,3,5,8,9)</h3>
+                <p>
+                    Payment channels allow opening commitment transactions between two participants and sending payments
+                    off chain in a trustless setup.
+                    This include a node that can crate funding transactions to open channels, the commitment transaction
+                    so secure the funds
+                    and the HTLCs (hash timed locked outputs) to make off chain payments between participants.
+                    It also includes lots of boilerplate components such as the gossip messages, noise protocol the
+                    interaction with base layer etc..
+                </p>
+                <p>
+                    A big part of this section is already implemented in the Lyn repo.
+                </p>
+
+                <h3>- Payment Routing (BOLT4,11)</h3>
+                <p>
+                    Onion routing (built of layers like an onion) refer to the ability to route payments between
+                    participants who don't share a channel directly,
+                    an onion routed packet is used to route a payment from an origin node to a final node through a
+                    number of intermediate nodes, called hops.
+                    The payment initiator node, who knows the public keys of each intermediate, create the onion packet
+                    in such a way that each node only knows
+                    it's previous and next route but can't read information of any participant or how many hope this
+                    route has.
+                </p>
+                <p>
+                    Invoicing, defining protocol messages where participants can request payments over Lightning.
+                </p>
+
+                <h3>- Payment Channel Discovery (BOLT7,10)</h3>
+                <p>
+                    Node and channel discovery serve two different purposes, Node discovery allows nodes to broadcast
+                    information about themselves, so that other
+                    nodes can open connections and establish payment channels with them. Channel discovery allows the
+                    creation and maintenance of a local
+                    view of the network's topology, so that a node can discover routes to desired destinations.
+                    Discovery is done using gossip messages, each node that receives gossip messages stores it and routs
+                    it on to its peers.
+                </p>
+
+                <h3>Lightning Applications</h2>
+                    <p>
+                        Features that will leverage the lightning node and are intended to be used by Stratis master
+                        nodes
+                    </p>
+                    <h3>- Cross chain submarin swaps</h3>
+                    <p>
+                        WIP
+                    </p>
+                    <h3>- Cross chain lightning swaps</h3>
+                    <p>
+                        WIP
+                    </p>
+                    <h3>- MN swap services</h3>
+                    <p>
+                        WIP
+                    </p>
+                    <h3>- MN watchtower services</h3>
+                    <p>
+                        WIP
+                    </p>
+                    <h3>- MN routing serivces</h3>
+                    <p>
+                        WIP
+                    </p>
         </div>
     </section>
-    
+
     <section class="section section-5">
         <div class="container">
-            <h2>Business Funding Proposal</h2>
+            <h2>Our Team</h2>
             <p><img class="drawing-right" src="assets/undraw_version_control_re_mg66.svg">
-                The DOA business proposal is made on behalf of the SoftChain (Ltd?) and the
+                The Stratis Decentralized Accelerator business proposal is made on behalf of the SoftChain Ltd and the
                 following group of individuals.
             </p>
-
-            <h3>Dan Gershony</h3>
             <p>
-                <img class="profile" src="assets/dan.jpg">
-                Dan is an ex-CTO of Stratis Group Ltd and had a main role in building the Stratis blockchain stack. He
-                has many years of experience with blockchain development and is currently one of the active contributors
-                to Blockcore (an open source blockchian platform based on Stratis tech) and Lyn (a lightning
-                implementation in C#).
-            </p>
-            <p>
-                Dan has previously worked at companies such as Microsoft, Fujitsu and Talktalk and brings almost 20
-                years of software development experience to the team.
-            </p>
-            <p>
-                <a href="https://github.com/dangershony">GitHub</a>
+                We all have a great passion for blockchains and is seeking financial support to continue our work to
+                develop an open source Lightning protocol implementation in C# and .NET.
             </p>
 
-            <h3>Sondre Bjellås</h3>
-            <p>
-                <img class="profile" src="assets/sondre.jpg">
-                Sondre has 23 years of experience with software development and many years experience with blockchain
-                development and has made contributions to the Stratis
-                codebase. Sondre has successfully launched the blockchain City Chain and is currently working as an
-                architect and developer for the open source group behind Blockcore.
-            </p>
-            <p>Sondre is an very active contributor on many open source projects related to decentralized technology and
-                blockchain. He is currently working decentralized identities (DID) and verifiable credentials platform
-                for NFT based marketplaces and personal data vaults.</p>
-            <p>
-                <a href="https://github.com/sondreb">GitHub</a>
-            </p>
+            <br class="break">
 
-            <h3>David Gershony</h3>
-            <p>
-                <img class="profile" src="assets/david.jpg">David is an expert in Problem Solving & Complex algorithms
-                when it comes to code. With years of experience in software Development & Teach Lead in the world of
-                banking, payments and billings domains.
-            </p>
-            <p>David brings 11 years of experience to the team.</p>
-            <p>
-                <a href="https://github.com/DavidGershony">GitHub</a>
-            </p>
+            <div class="profile-container">
+                <div class="image">
+                    <p><img class="profile" src="assets/dan.jpg">
+                    </p>
+                </div>
+                <div class="text">
+                    <h3>Dan Gershony</h3>
+                    <p>
 
-            <h3>Adam Elgressy</h3>
-            <p>
-                <img class="profile" src="assets/adam.png">
-                Adam brings vast knowledge in Product Management, defining roadmaps, prioritizing and planning, managing
-                product lifecycle & release, crafting UI/ UX requirements.
-            </p>
-            <p>In addition, Adam has many years of experience as a software engineer and team leadership using
-                industry-proven methodologies such as Agile and Scrum, working in Start-Up environments.</p>
-            <p>
-                <a href="https://github.com/elgressy">GitHub</a>
-            </p>
+                        Dan is an ex-CTO of Stratis Group Ltd and had a main role in building the Stratis blockchain
+                        stack. He
+                        has many years of experience with blockchain development and is currently one of the active
+                        contributors
+                        to Blockcore (an open source blockchian platform based on Stratis tech) and Lyn (a lightning
+                        implementation in C#).
+                    </p>
+                    <p>
+                        Dan has previously worked at companies such as Microsoft, Fujitsu and Talktalk and brings almost
+                        20
+                        years of software development experience to the team.
+                    </p>
+                    <p>
+                        <a href="https://github.com/dangershony">GitHub</a>
+                    </p>
+                </div>
+            </div>
 
-            <h3>Kyllian</h3>
-            <p>
-                <img class="profile" src="assets/kyllian.jpg">Kyllian has 6 years of experience in development and
-                around cryptocurrencies. He is currently working at Decentraland as a DevOps and engineering
-                productivity.
-            </p>
-            <p>
-                <a href="https://github.com/HPrivakos">GitHub</a>
-            </p>
+            <div class="profile-container">
+                <div class="image">
+                    <p><img class="profile" src="assets/sondre.jpg">
+                    </p>
+                </div>
+                <div class="text">
+                    <h3>Sondre Bjellås</h3>
+                    <p>
 
-            <h3>Emil</h3>
-            <p>
-                <img class="profile" src="assets/emil.jpg"> Emil is a CEO of a consultancy company IConsultable AS.
-                He has over 20 years of professional software experience and has specialized in embedded systems and
-                mission critical real-time systems and low level IO.
-                Emil also has extensive experience with enterprise systems, protocols, databases and distributed
-                systems.
-            </p>
-            <p>He is currently working on a complete end-to-end hardware/software design project for a customer.
-                Favorite languages are C# and C++.</p>
-            <p>
-                <a href="https://github.com/emilm">GitHub</a>
-            </p>
+                        Sondre has 23 years of experience with software development and many years experience with
+                        blockchain
+                        development and has made contributions to the Stratis
+                        codebase. Sondre has successfully launched the blockchain City Chain and is currently working as
+                        an
+                        architect and developer for the open source group behind Blockcore.
+                    </p>
+                    <p>Sondre is an very active contributor on many open source projects related to decentralized
+                        technology and
+                        blockchain. He is currently working decentralized identities (DID) and verifiable credentials
+                        platform
+                        for NFT based marketplaces and personal data vaults.</p>
+                    <p>
+                        <a href="https://github.com/sondreb">GitHub</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="profile-container">
+                <div class="image">
+                    <p><img class="profile" src="assets/david.jpg">
+                    </p>
+                </div>
+                <div class="text">
+                    <h3>David Gershony</h3>
+                    <p>
+                        David is an expert in Problem Solving & Complex algorithms
+                        when it comes to code. With years of experience in software Development & Teach Lead in the
+                        world of
+                        banking, payments and billings domains.
+                    </p>
+                    <p>David brings 11 years of experience to the team.</p>
+                    <p>
+                        <a href="https://github.com/DavidGershony">GitHub</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="profile-container">
+                <div class="image">
+                    <p><img class="profile" src="assets/adam.png">
+                    </p>
+                </div>
+                <div class="text">
+                    <h3>Adam Elgressy</h3>
+                    <p>
+                        Adam brings vast knowledge in Product Management, defining roadmaps, prioritizing and planning,
+                        managing
+                        product lifecycle & release, crafting UI/ UX requirements.
+                    </p>
+                    <p>In addition, Adam has many years of experience as a software engineer and team leadership using
+                        industry-proven methodologies such as Agile and Scrum, working in Start-Up environments.</p>
+                    <p>
+                        <a href="https://github.com/elgressy">GitHub</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="profile-container">
+                <div class="image">
+                    <p><img class="profile" src="assets/kyllian.jpg">
+                    </p>
+                </div>
+                <div class="text">
+                    <h3>Kyllian Le Borgne Roperch</h3>
+                    <p>
+                        Kyllian has 6 years of experience in development and
+                        around cryptocurrencies. He is currently working at Decentraland as a DevOps and engineering
+                        productivity.
+                    </p>
+                    <p>
+                        <a href="https://github.com/HPrivakos">GitHub</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="profile-container">
+                <div class="image">
+                    <p><img class="profile" src="assets/emil.jpg">
+                    </p>
+                </div>
+                <div class="text">
+                    <h3>Emil</h3>
+                    <p>
+                        He has over 20 years of professional software experience and has specialized in embedded systems and
+                        mission critical real-time systems and low level IO.
+                        Emil also has extensive experience with enterprise systems, protocols, databases and distributed
+                        systems.
+                    </p>
+                    <p>He is currently working on a complete end-to-end hardware/software design project for a customer.
+                        Favorite languages are C# and C++.</p>
+                    <p>
+                        <a href="https://github.com/emilm">GitHub</a>
+                    </p>
+                </div>
+            </div>
 
             <h3>Cost and schedule</h3>
             <p><img class="drawing-right" src="assets/undraw_Online_calendar_re_wk3t.svg">
