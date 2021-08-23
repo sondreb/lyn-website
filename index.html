@@ -136,12 +136,12 @@
             <h2>Technical proposal</h2>
 
             <p>
-                Our proposal comes in two parts a full lightning node implementation based on the lightning RFC (also
-                referred to as the BOLTs),
-                an implementation which is compatible with the Bitcoin network and the Stratis network (a multi chain
+                Our proposal comes in two parts a full **lightning node** implementation based on the lightning RFC also
+                referred to BOLTs (Basis of Lightning Technology),
+                an implementation which is compatible with the Bitcoin network and the Stratis network (a multi-chain
                 lightning node).
-                The second part are applications that use the lightning node implementation such as swaps, watchtowers
-                and routing services for master nodes.
+                The second part is about the **applications** that use the lightning node implementation such as swaps, watchtowers
+                and routing services which will be targeted for the Stratis master nodes.
             </p>
 
             <h3>Lightning Node</h2>
@@ -157,6 +157,24 @@
                     that can be used in C# applications such as web, mobile and even games (with unity).
                 </p>
 
+                <p>
+                    Work has already started on an implementation called Lyn (lightning in Danish).
+                    The codebase can be found here [Lyn](https://github.com/block-core/lyn)
+                </p>
+                
+                <p>
+                    For the full lightning implementation the node will be compatible with the popular UI for lightning 
+                    called RTL (Ride The Lightning), and later at the second phase of the proposal we'll work on a light 
+                    weight UI that will use lightning service providers (such as master nodes) for some of the work that
+                    can be delegated away.
+                </p>
+            
+                <p>
+                    The lightning node adds scaling capabilities to the already wide Stratis technology stack, we will develop
+                    the node with cloud architecture in mind, parts of the workload required to successfully route payments in lighting 
+                    can be delegated to dedicated cloud service providers or master nodes. 
+                </p>
+            
                 <h3>- Payment Channels (BOLT1,2,3,5,8,9)</h3>
                 <p>
                     Payment channels allow opening commitment transactions between two participants and sending payments
@@ -168,7 +186,7 @@
                     interaction with base layer etc..
                 </p>
                 <p>
-                    A big part of this section is already implemented in the Lyn repo.
+                    A big part of this section is already implemented (BOLT1,3,8,9) in the Lyn repo.
                 </p>
 
                 <h3>- Payment Routing (BOLT4,11)</h3>
