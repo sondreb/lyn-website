@@ -171,11 +171,10 @@
             
                 <b>Payment Channels (BOLT1,2,3,5,8,9)</b>
                 <p>
-                    Payment channels allow opening commitment transactions between two participants and sending payments
-                    off chain in a trustless setup.
+                    Payment channels allow the exchange of transactions between two participants which are sending payments
+                    off-chain in a trustless setup.
                     This include a node that can crate funding transactions to open channels, the commitment transaction
-                    so secure the funds
-                    and the HTLCs (hash timed locked outputs) to make off chain payments between participants.
+                    to secure the funds and the HTLCs (hash timed locked outputs) to make off chain payments between participants.
                     It also includes lots of boilerplate components such as the gossip messages, noise protocol the
                     interaction with base layer etc..
                 </p>
@@ -220,13 +219,13 @@
                         on-chain address (and reverse) using a protocol extension called submarine swaps.
                     </p>
                     <p>
-                        <b>- Bitcoin lightning to Stratis main chain</b>
+                        <b>LBTC to STRAX swaps - </b>
                         We'll use the submarine swaps protocol to enable atomic swaps between LBTC (Bitcoin locked in lightning channels) 
                         to STRAX on the stratis main chain.
                     </p>
                     <p>
-                        <b>- Bitcoin lightning to Stratis Lightning</b>
-                        A lightning protocol extension called HODL invoices introduces expire-able hash locked lightning payments, where
+                        <b>LBTC to LSTRAX swaps - </b>
+                        A lightning protocol extension called HODL invoices introduces expireable hash locked lightning payments, where
                         a routed lightning payment is locked for a certain time until a secret is revealed.
                         Using this mechanism a lightning payment from one chain can be hash locked at the receiver until the lighting 
                         swap payment from the sender on the second chain is sent.
@@ -243,11 +242,34 @@
                     <p>
                         Stratis master nodes are known, semi-trusted, entities however the swap users can stay unknown. 
                     </p>
-                    <b>MN watchtower services</b>
                     <p>
-                        WIP
+                        Master nodes that run a swap service will gain fees in BTC and STRAX and will be required to run a fullnode and a lightning 
+                        node on the Bitcoin and Stratis main chain.
                     </p>
-                    <b>MN routing serivces</b>
+                    <b>Master node watchtower services</b>
+                    <p>
+                        Watchtowers are specialized services that are always online in order to monitor the blockchain for channel breaches 
+                        on behalf of lightning network participants.
+                     <p>
+                     </p>
+                        Lightning channels create asymmetric commitment transactions on each side of the channel when sending funds off-chain, 
+                        every new commitment transaction effectively invalidates all previous commitment transactions by sharing a revocation key
+                        corresponding to the old invalidated commitment transaction.
+                        A malicious side of the channel who breach the channel by publishing a previous invalidated commitment transaction can be  
+                        punished by loosing all the funds in the channel using the revocation key of the honest side of the channel.
+                        In order to spot channel breaches node operator must stay online to monitor the blockchain and claim the breached channel funds. 
+                    </p>
+                    <p>
+                        This service can be delegated to master nodes who keep an always online node anyway.
+                        A lightning user that is not always online and uses a watchtower service will register an encrypted justice transaction alongside a 
+                        transaction locator to the Watchtowers. Both the encryption key and the transaction locator are derived from the breach transaction id, 
+                        meaning that the Watchtower will be able to decrypt the justice transaction only after the corresponding breach is seen on the blockchain.
+                    <p>
+                    <p>
+                        Master nodes that run a Watchtower service can claim fees for such a services either in BTC or STRAX and will be required to run a fullnode
+                        and a lightning node of the network they provides watchtower services for.
+                    </p>
+                    <b>MN routing services</b>
                     <p>
                         WIP
                     </p>
