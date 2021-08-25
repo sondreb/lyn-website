@@ -250,8 +250,8 @@
                     <p>
                         Watchtowers are specialized services that are always online in order to monitor the blockchain for channel breaches 
                         on behalf of lightning network participants.
-                     <p>
-                     </p>
+                    <p>
+                    </p>
                         Lightning channels create asymmetric commitment transactions on each side of the channel when sending funds off-chain, 
                         every new commitment transaction effectively invalidates all previous commitment transactions.
                         A malicious side of the channel who breach the channel can be punished by loosing all the funds in the channel.
@@ -264,13 +264,30 @@
                         meaning that the Watchtower will be able to decrypt the justice transaction only after the corresponding breach is seen on the blockchain.
                     <p>
                     <p>
-                        Master nodes that run a Watchtower service can claim fees for such a services either in BTC or STRAX and will be required to run a fullnode
+                        Master nodes that run a Watchtower service can claim fees for such a service either in BTC or STRAX and will be required to run a fullnode
                         and a lightning node of the network they provides watchtower services for.
                     </p>
-                    <b>MN routing services</b>
+                    <b>Master node routing services</b>
                     <p>
-                        WIP
+                        Lighting nodes build payment routes in order to make a payment over several hopes.
+                        To be able to construct routes a node needs to maintain a recent and correct view of the network channels and balances.
+                        This is done using gossip messages that are sent over the lighting network. 
+                        Nodes stay online and continuously listen to gossip messages to be able to create a graph of the network.
                     </p>
+                    <p>
+                        The services of constructing payment routs can be delegated to master who keep an always online node anyway.
+                        This enables light wallets that don't need to stay online to make route requests when making a lightning payment.
+                    </p>
+                    <p>
+                        Master nodes that run a routing service can claim fees for such a service either in BTC or STRAX and will be required to run a fullnode
+                        and a lightning node of the network they provides routing services for.
+                    </p>
+                    <p>
+                        Master nodes can also act as lightning nodes that can route trampoline payments.
+                        Trampoline payments are a proposed type of payment where the spender routes the payment to an intermediate node who can select the rest 
+                        of the path to the final receiver.
+                    </p>
+        
         </div>
     </section>
 
