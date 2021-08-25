@@ -253,14 +253,12 @@
                      <p>
                      </p>
                         Lightning channels create asymmetric commitment transactions on each side of the channel when sending funds off-chain, 
-                        every new commitment transaction effectively invalidates all previous commitment transactions by sharing a revocation key
-                        corresponding to the old invalidated commitment transaction.
-                        A malicious side of the channel who breach the channel by publishing a previous invalidated commitment transaction can be  
-                        punished by loosing all the funds in the channel using the revocation key of the honest side of the channel.
-                        In order to spot channel breaches node operator must stay online to monitor the blockchain and claim the breached channel funds. 
+                        every new commitment transaction effectively invalidates all previous commitment transactions.
+                        A malicious side of the channel who breach the channel can be punished by loosing all the funds in the channel.
+                        In order to spot channel breaches node operator must stay online to monitor the blockchain. 
                     </p>
                     <p>
-                        This service can be delegated to master nodes who keep an always online node anyway.
+                        The services of spotting a channel breach can be delegated to master nodes who keep an always online node anyway.
                         A lightning user that is not always online and uses a watchtower service will register an encrypted justice transaction alongside a 
                         transaction locator to the Watchtowers. Both the encryption key and the transaction locator are derived from the breach transaction id, 
                         meaning that the Watchtower will be able to decrypt the justice transaction only after the corresponding breach is seen on the blockchain.
