@@ -104,7 +104,7 @@
                 and respond to payment routing requests for a competitive fee.
             </p>
             <p>
-                Lightning is designed to be extendible with the ability to add many new message types, lightning is also
+                Lightning is designed with the ability to add many new message types, lightning is also
                 designed with privacy in mind such that all communications between peers are private and encrypted,
                 payment routing uses onion like layers to hide recipients identity and protect privacy (when routing a
                 payment a node does not know who initiated the payment and who it is for)</p>
@@ -130,9 +130,9 @@
             And we believe lots more features will come up over time.
             </p>
 
-            <h3>Stats</h3>
+            <h3>Lightning projected growth</h3>
             <p>
-                The lightning network capacity now exceeded the $100m (2300 Bitcoin) with over 25k nodes 
+                The lightning network capacity now exceeded $100m (2300 Bitcoin) with over 25k nodes 
                 and over 65k channels, in the last month alone the network capacity increased by 20%. 
                 Lightning network is constantly growing.
             </p>
@@ -182,7 +182,7 @@
                 <p>
                     Payment channels allow the exchange of transactions between two participants which are sending payments
                     off-chain in a trustless setup.
-                    This include a node that can crate funding transactions to open channels, the commitment transaction
+                    This include a node that can create funding transactions to open channels, the commitment transaction
                     to secure the funds and the HTLCs (hash timed locked outputs) to make off chain payments between participants.
                     It also includes lots of boilerplate components such as the gossip messages, noise protocol the
                     interaction with base layer etc..
@@ -213,7 +213,7 @@
                     nodes can open connections and establish payment channels with them. Channel discovery allows the
                     creation and maintenance of a local
                     view of the network's topology, so that a node can discover routes to desired destinations.
-                    Discovery is done using gossip messages, each node that receives gossip messages stores it and routs
+                    Discovery is done using gossip messages, each node that receives gossip messages stores it and routes
                     it on to its peers.
                 </p>
 
@@ -242,10 +242,10 @@
                     <p>
                         Swaps will come with a light weight lightning UI.
                     </p>
-                    <b>Mater node swap services</b>
+                    <b>Master node swap services</b>
                     <p>
                         Stratis master nodes can provide a swap matching service where users can register a request to make a swap or ask for 
-                        available open swaps, effectively becoming a none-custodial market liquidity provider.
+                        available open swaps, effectively becoming a non-custodial market liquidity provider.
                         When a swap will take place it will be routed using the master node channels and will incur routing and swapping fees.
                     </p>
                     <p>
@@ -284,7 +284,7 @@
                         Nodes stay online and continuously listen to gossip messages to be able to create a graph of the network.
                     </p>
                     <p>
-                        The services of constructing payment routs can be delegated to master who keep an always online node anyway.
+                        The services of constructing payment routes can be delegated to master who keep an always online node anyway.
                         This enables light wallets that don't need to stay online to make route requests when making a lightning payment.
                     </p>
                     <p>
