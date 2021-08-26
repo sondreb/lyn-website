@@ -65,7 +65,7 @@
         </div>
     </section>
 
-    <section class="section section-2">
+    <section class="section section-1">
         <div class="container">
 
             <h2>A Stratis Decentralized Accelerator proposal</h2>
@@ -74,7 +74,8 @@
                 We make a bid to the Stratis Decentralized Accelerator for funding to develop a lightning node in C#,
                 this will be deployed on top of the Stratis network but will also be a scaling solution for the Stratis
                 technology stack.
-                Our focus will be a solution that is cloud aware (mainly the Azure cloud), multi chain and with support for
+                Our focus will be a solution that is cloud aware (mainly the Azure cloud), multi chain and with support
+                for
                 multi users in mind.
             </p>
             <p>
@@ -87,7 +88,7 @@
         </div>
     </section>
 
-    <section class="section section-3">
+    <section class="section section-2">
         <div class="container">
             <h2>What is lightning?</h2>
             <p><img class="drawing-right" src="assets/undraw_nakamoto_2iv6.svg">Lightning is a layer two scaling
@@ -127,8 +128,8 @@
 
             <h3>Lightning projected growth</h3>
             <p>
-                The lightning network capacity now exceeded $100m (2300 Bitcoin) with over 25k nodes 
-                and over 65k channels, in the last month alone the network capacity increased by 20%. 
+                The lightning network capacity now exceeded $100m (2300 Bitcoin) with over 25k nodes
+                and over 65k channels, in the last month alone the network capacity increased by 20%.
                 Lightning network is constantly growing.
             </p>
         </div>
@@ -140,11 +141,13 @@
             <h2>Technical proposal</h2>
 
             <p>
-                Our proposal comes in two parts a full <b>lightning node</b> implementation based on the lightning RFC also
+                Our proposal comes in two parts a full <strong>lightning node</strong> implementation based on the
+                lightning RFC also
                 referred to as BOLTs (Basis of Lightning Technology),
                 an implementation which is compatible with the Bitcoin network and the Stratis network (a multi-chain
                 lightning node).
-                The second part is about the <b>applications of lightning</b> that use the lightning node implementation such as swaps, watchtowers
+                The second part is about the <strong>applications of lightning</strong> that use the lightning node
+                implementation such as swaps, watchtowers
                 and routing services which will be targeting cloud provides or the Stratis master nodes.
             </p>
 
@@ -166,19 +169,24 @@
                     Work has already started on an implementation called Lyn (lightning in Danish).
                     The codebase can be found here <a href="https://github.com/block-core/lyn">Lyn</a>
                 </p>
-              
+
                 <p>
-                    The lightning node adds scaling capabilities to the already wide Stratis technology stack, we will develop
-                    the node with cloud architecture in mind, parts of the workload required to successfully route payments in lighting 
-                    can be delegated to dedicated cloud service providers or master nodes. 
+                    The lightning node adds scaling capabilities to the already wide Stratis technology stack, we will
+                    develop
+                    the node with cloud architecture in mind, parts of the workload required to successfully route
+                    payments in lighting
+                    can be delegated to dedicated cloud service providers or master nodes.
                 </p>
-            
-                <b>Payment Channels (BOLT1,2,3,5,8,9)</b>
+
+                <strong>Payment Channels (BOLT1,2,3,5,8,9)</strong>
                 <p>
-                    Payment channels allow the exchange of transactions between two participants which are sending payments
+                    Payment channels allow the exchange of transactions between two participants which are sending
+                    payments
                     off-chain in a trustless setup.
-                    This include a node that can create funding transactions to open channels, the commitment transaction
-                    to secure the funds and the HTLCs (hash timed locked outputs) to make off chain payments between participants.
+                    This include a node that can create funding transactions to open channels, the commitment
+                    transaction
+                    to secure the funds and the HTLCs (hash timed locked outputs) to make off chain payments between
+                    participants.
                     It also includes lots of boilerplate components such as the gossip messages, noise protocol the
                     interaction with base layer etc..
                 </p>
@@ -186,7 +194,7 @@
                     A big part of this section is already implemented (BOLT1,3,8,9) in the Lyn repo.
                 </p>
 
-                <b>Payment Routing (BOLT4,11)</b>
+                <strong>Payment Routing (BOLT4,11)</strong>
                 <p>
                     Onion routing (built of layers like an onion) refer to the ability to route payments between
                     participants who don't share a channel directly,
@@ -201,97 +209,120 @@
                     Invoicing, defining protocol messages where participants can request payments over Lightning.
                 </p>
 
-                <b>Payment Channel Discovery (BOLT7,10)</b>
+                <strong>Payment Channel Discovery (BOLT7,10)</strong>
                 <p>
                     Node and channel discovery serve two different purposes, Node discovery allows nodes to broadcast
                     information about themselves, so that other
                     nodes can open connections and establish payment channels with them. Channel discovery allows the
                     creation and maintenance of a local
                     view of the network's topology, so that a node can discover routes to desired destinations.
-                    Discovery is done using gossip messages, each node that receives gossip messages stores it and routes
+                    Discovery is done using gossip messages, each node that receives gossip messages stores it and
+                    routes
                     it on to its peers.
                 </p>
 
                 <h3>Lightning Applications</h2>
                     <p>
-                        Features that use and build on top of the lightning node and are intended to be used by Stratis master
+                        Features that use and build on top of the lightning node and are intended to be used by Stratis
+                        master
                         nodes
                     </p>
-                    <b>Atomic Cross-Chain Lighting Swaps</b>
+                    <strong>Atomic Cross-Chain Lighting Swaps</strong>
                     <p>
-                        Lightning enables channel rebalancing using atomic swaps between an off-chain lightning channel to a Bitcoin 
+                        Lightning enables channel rebalancing using atomic swaps between an off-chain lightning channel
+                        to a Bitcoin
                         on-chain address (and reverse) using a protocol extension called submarine swaps.
                     </p>
                     <p>
-                        <b>LBTC to STRAX swaps - </b>
-                        We'll use the submarine swaps protocol to enable atomic swaps between LBTC (Bitcoin locked in lightning channels) 
+                        <strong>LBTC to STRAX swaps - </strong>
+                        We'll use the submarine swaps protocol to enable atomic swaps between LBTC (Bitcoin locked in
+                        lightning channels)
                         to STRAX on the stratis main chain.
                     </p>
                     <p>
-                        <b>LBTC to LSTRAX swaps - </b>
-                        A lightning protocol extension called HODL invoices introduces expirable hash locked lightning payments, where
+                        <strong>LBTC to LSTRAX swaps - </strong>
+                        A lightning protocol extension called HODL invoices introduces expirable hash locked lightning
+                        payments, where
                         a routed lightning payment is locked for a certain time until a secret is revealed.
-                        Using this mechanism a lightning payment from one chain can be hash locked at the receiver until the lighting 
+                        Using this mechanism a lightning payment from one chain can be hash locked at the receiver until
+                        the lighting
                         swap payment from the sender on the second chain is sent.
                     </p>
                     <p>
                         Swaps will come with a light weight lightning UI.
                     </p>
-                    <b>Master node swap services</b>
+                    <strong>Master node swap services</strong>
                     <p>
-                        Stratis master nodes can provide a swap matching service where users can register a request to make a swap or ask for 
+                        Stratis master nodes can provide a swap matching service where users can register a request to
+                        make a swap or ask for
                         available open swaps, effectively becoming a non-custodial market liquidity provider.
-                        When a swap will take place it will be routed using the master node channels and will incur routing and swapping fees.
+                        When a swap will take place it will be routed using the master node channels and will incur
+                        routing and swapping fees.
                     </p>
                     <p>
-                        Stratis master nodes are known, semi-trusted, entities however the swap users can stay unknown. 
+                        Stratis master nodes are known, semi-trusted, entities however the swap users can stay unknown.
                     </p>
                     <p>
-                        Master nodes that run a swap service will gain fees in BTC and STRAX and will be required to run a fullnode and a lightning 
+                        Master nodes that run a swap service will gain fees in BTC and STRAX and will be required to run
+                        a fullnode and a lightning
                         node on the Bitcoin and Stratis main chain.
                     </p>
-                    <b>Master node watchtower services</b>
+                    <strong>Master node watchtower services</strong>
                     <p>
-                        Watchtowers are specialized services that are always online in order to monitor the blockchain for channel breaches 
+                        Watchtowers are specialized services that are always online in order to monitor the blockchain
+                        for channel breaches
                         on behalf of lightning network participants.
                     <p>
                     </p>
-                        Lightning channels create asymmetric commitment transactions on each side of the channel when sending funds off-chain, 
-                        every new commitment transaction effectively invalidates all previous commitment transactions.
-                        A malicious side of the channel who breach the channel can be punished by loosing all the funds in the channel.
-                        In order to spot channel breaches node operator must stay online to monitor the blockchain. 
+                    Lightning channels create asymmetric commitment transactions on each side of the channel when
+                    sending funds off-chain,
+                    every new commitment transaction effectively invalidates all previous commitment transactions.
+                    A malicious side of the channel who breach the channel can be punished by loosing all the funds in
+                    the channel.
+                    In order to spot channel breaches node operator must stay online to monitor the blockchain.
                     </p>
                     <p>
-                        The services of monitoring a channel breach can be delegated to master nodes who keep an always online node anyway.
-                        A lightning user that is not always online and uses a watchtower service will register an encrypted justice transaction alongside a 
-                        transaction locator to the Watchtowers. Both the encryption key and the transaction locator are derived from the breach transaction id, 
-                        meaning that the Watchtower will be able to decrypt the justice transaction only after the corresponding breach is seen on the blockchain.
+                        The services of monitoring a channel breach can be delegated to master nodes who keep an always
+                        online node anyway.
+                        A lightning user that is not always online and uses a watchtower service will register an
+                        encrypted justice transaction alongside a
+                        transaction locator to the Watchtowers. Both the encryption key and the transaction locator are
+                        derived from the breach transaction id,
+                        meaning that the Watchtower will be able to decrypt the justice transaction only after the
+                        corresponding breach is seen on the blockchain.
                     <p>
                     <p>
-                        Master nodes that run a Watchtower service can claim fees for such a service either in BTC or STRAX and will be required to run a fullnode
+                        Master nodes that run a Watchtower service can claim fees for such a service either in BTC or
+                        STRAX and will be required to run a fullnode
                         and a lightning node of the network they provides watchtower services for.
                     </p>
-                    <b>Master node routing services</b>
+                    <strong>Master node routing services</strong>
                     <p>
                         Lighting nodes build payment routes in order to make a payment over several hopes.
-                        To be able to construct routes a node needs to maintain a recent and correct view of the network channels and balances.
-                        This is done using gossip messages that are sent over the lighting network. 
-                        Nodes stay online and continuously listen to gossip messages to be able to create a graph of the network.
+                        To be able to construct routes a node needs to maintain a recent and correct view of the network
+                        channels and balances.
+                        This is done using gossip messages that are sent over the lighting network.
+                        Nodes stay online and continuously listen to gossip messages to be able to create a graph of the
+                        network.
                     </p>
                     <p>
-                        The services of constructing payment routes can be delegated to master who keep an always online node anyway.
-                        This enables light wallets that don't need to stay online to make route requests when making a lightning payment.
+                        The services of constructing payment routes can be delegated to master who keep an always online
+                        node anyway.
+                        This enables light wallets that don't need to stay online to make route requests when making a
+                        lightning payment.
                     </p>
                     <p>
-                        Master nodes that run a routing service can claim fees for such a service either in BTC or STRAX and will be required to run a fullnode
+                        Master nodes that run a routing service can claim fees for such a service either in BTC or STRAX
+                        and will be required to run a fullnode
                         and a lightning node of the network they provides routing services for.
                     </p>
                     <p>
                         Master nodes can also act as lightning nodes that can route trampoline payments.
-                        Trampoline payments are a proposed type of payment where the spender routes the payment to an intermediate node who can select the rest 
+                        Trampoline payments are a proposed type of payment where the spender routes the payment to an
+                        intermediate node who can select the rest
                         of the path to the final receiver.
                     </p>
-        
+
         </div>
     </section>
 
@@ -317,10 +348,12 @@
                 <div class="text">
                     <h3>Dan Gershony</h3>
                     <p>
-                        Dan is an ex-CTO of Stratis Group Ltd and brings almost 20 years of software development experience to 
-                        the team, he had a main role in building the Stratis blockchain stack. 
+                        Dan is an ex-CTO of Stratis Group Ltd and brings almost 20 years of software development
+                        experience to
+                        the team, he had a main role in building the Stratis blockchain stack.
                         He has many years of experience with blockchain development and is currently one of the active
-                        contributors to Blockcore (an open source blockchain platform based on Stratis tech) and Lyn (a lightning
+                        contributors to Blockcore (an open source blockchain platform based on Stratis tech) and Lyn (a
+                        lightning
                         implementation in C#).
                     </p>
                     <p>
@@ -364,8 +397,9 @@
                 <div class="text">
                     <h3>David Gershony</h3>
                     <p>
-                        David brings 11 years of experience to the team, and is an expert in Problem Solving & Complex 
-                        algorithms when it comes to code. With years of experience in software Development & Teach Lead in the
+                        David brings 11 years of experience to the team, and is an expert in Problem Solving & Complex
+                        algorithms when it comes to code. With years of experience in software Development & Teach Lead
+                        in the
                         world of banking, payments and billings domains.
                     </p>
                     <p>
@@ -382,7 +416,8 @@
                 <div class="text">
                     <h3>Adam Elgressy</h3>
                     <p>
-                        Adam almost 20 years of experience and brings vast knowledge in Product Management, defining roadmaps, 
+                        Adam almost 20 years of experience and brings vast knowledge in Product Management, defining
+                        roadmaps,
                         prioritizing and planning, managing
                         product lifecycle & release, crafting UI/ UX requirements.
                     </p>
@@ -420,7 +455,8 @@
                 <div class="text">
                     <h3>Emil</h3>
                     <p>
-                        He has over 20 years of professional software experience and has specialized in embedded systems and
+                        He has over 20 years of professional software experience and has specialized in embedded systems
+                        and
                         mission critical real-time systems and low level IO.
                         Emil also has extensive experience with enterprise systems, protocols, databases and distributed
                         systems.
@@ -432,35 +468,40 @@
                     </p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <h3>Cost and schedule</h3>
-            
-            <p>
-                Estimating delivery of software is hard and very inaccurate, we provide our best effort estimation and delivery schedule.
+    <section class="section section-2">
+        <div class="container">
+            <h2>Cost and schedule</h2>
+
+            <p><img class="drawing-right" src="assets/undraw_Online_calendar_re_wk3t.svg">
+                Estimating delivery of software is hard and very inaccurate, we provide our best effort estimation and
+                delivery schedule.
                 The estimations may change and we will provide updates to the community if and when this we need.
             </p>
             <p>
-                <b>Part 1</b> Lightning node - 9 month of development
+                <strong>Part 1</strong>
+            <ul>
+                <li>Lightning node - 9 month of development</li>
+            </ul>
             </p>
             <p>
-                <b>Part 2</b> Features:
-                <ul>
-                  <li>Swaps - 4 month</li>
-                  <li>Watchtower- 3 month</li>
-                  <li>Routing - 3 month</li>
-                </ul>   
+                <strong>Part 2</strong> Features:
+            <ul>
+                <li>Swaps - 4 month</li>
+                <li>Watchtower- 3 month</li>
+                <li>Routing - 3 month</li>
+            </ul>
             </p>
-            <p><img class="drawing-right" src="assets/undraw_Online_calendar_re_wk3t.svg">
-                Estimated amount required for development: <strong>$1.2m (550k STRAX)</strong>
-                <br>
-                Our development process will be public and we will releases on weekly and monthly basis.
-                
+            <p>
+                Estimated amount required for development:
             </p>
+            <p><strong>$1.2m (550k STRAX)</strong></p>
+            <p>Our development process will be public and we will releases on weekly and monthly basis.</p>
             <p>
                 <a href="assets/roadmap.png"><img class="roadmap" src="assets/roadmap.png"></a>
             </p>
-
-
         </div>
     </section>
 
