@@ -162,23 +162,23 @@ footer {
 }
 
 .section-1 {
-    margin-top: 2em;
-    min-height: 300px;
+    padding-top: 2em;
     background-color: #271b1d;
 }
 
 .section-2 {
-    min-height: 400px;
+    padding-top: 2em;
     background-color: #8e283d;
 }
 
 .section-3 {
-    min-height: 600px;
+    padding-top: 2em;
     background-color: #fec0cb;
     color: black;
 }
 
 .section-4 {
+    padding-top: 2em;
     min-height: 400px;
     background-color: white;
     color: #1b1b1b;
