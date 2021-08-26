@@ -168,7 +168,7 @@ footer {
 
 .section-2 {
     padding-top: 2em;
-    background-color: #8e283d;
+    background-color: #771d30;
 }
 
 .section-3 {
@@ -304,6 +304,7 @@ h3 {
 }
 
 .profile-container .text {
+    margin-left: 2em;
 }
 
 .break {
