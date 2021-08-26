@@ -205,6 +205,10 @@ footer {
     width: 100%;
 }
 
+.margin-above {
+    padding-top: 2em;
+}
+
 .profile {
     max-width: 128px;
     clear: both;
